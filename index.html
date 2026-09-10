@@ -361,174 +361,49 @@
   }
   .storefront-footer .wa-icon { width:22px; height:22px; flex:0 0 22px; }
 
+  /* ===================================================================
+     ===== DESKTOP / LARGER SCREENS ADAPTATION =====
+     Had biha kanwas3o l-container w kanzido colonnes fach l-écran kbir,
+     bla matmss lmanti9 (JS) wla design dyal telefon (li khass ybqa
+     kifma howa b نفس القيم اللي فوق).
+     =================================================================== */
+  @media (min-width:768px){
+    .topbar{ max-width:660px; padding:20px 24px; }
+    .wrap{ max-width:660px; padding:0 24px 70px; }
+    .admin-wrap{ max-width:860px; padding:26px 24px 90px; }
 
-  /* ===== DESKTOP STOREFRONT =====
-     Mobile layout is intentionally untouched. Desktop only starts at 900px.
-  */
-  @media (min-width:900px){
-    .topbar{
-      max-width:1180px;
-      padding:22px 28px;
-    }
-
-    .storefront-page{
-      max-width:1180px;
-      padding:0 28px 70px;
-      display:grid;
-      grid-template-columns:minmax(0,1.12fr) minmax(390px,.88fr);
-      column-gap:48px;
-      align-items:start;
-    }
-
-    /* Left side: product media */
-    .storefront-page .hero-media{
-      grid-column:1;
-      grid-row:1 / span 3;
-      margin:0;
-      position:sticky;
-      top:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-    .storefront-page .hero-media img{
-      width:100%;
-      max-height:760px;
-      aspect-ratio:4 / 5;
-      object-fit:cover;
-    }
-    .storefront-page .gallery-label{
-      grid-column:1;
-      grid-row:4;
-      margin:20px 0 8px;
-      font-size:.88rem;
-    }
-    .storefront-page .product-gallery{
-      grid-column:1;
-      grid-row:5;
-      width:100%;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-      margin:0 0 24px;
-    }
-    .storefront-page .product-gallery-item{
-      border-radius:14px;
-      border-width:1px;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .storefront-page .product-gallery-item:hover{
-      transform:translateY(-2px);
-      box-shadow:0 7px 18px rgba(0,0,0,.10);
+    .wrap.storefront-page, .wrap.preview-storefront{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding-top:26px;
+      padding-bottom:34px;
+      box-shadow:0 18px 50px rgba(0,0,0,.07);
     }
 
-    /* Right side: product details + purchase + order */
-    .storefront-page > h1,
-    .storefront-page > .desc,
-    .storefront-page > .video-section,
-    .storefront-page > .purchase-selector,
-    .storefront-page > #single-wrap,
-    .storefront-page > #pack-standard-wrap,
-    .storefront-page > #pack-custom-wrap,
-    .storefront-page > .price-row,
-    .storefront-page > .qty-wrap,
-    .storefront-page > .method-add-cart,
-    .storefront-page > .cart-bar,
-    .storefront-page > .cart-summary,
-    .storefront-page > .card,
-    .storefront-page > .footer-note,
-    .storefront-page > .storefront-footer{
-      grid-column:2;
-    }
+    .product-gallery{ grid-template-columns:repeat(4,1fr); }
+    .theme-grid{ grid-template-columns:repeat(5,1fr); }
+    .font-grid{ grid-template-columns:repeat(3,1fr); }
+    .color-grid{ grid-template-columns:repeat(3,1fr); }
 
-    .storefront-page > h1.title{
-      margin-top:4px;
-      margin-bottom:14px;
-      font-size:clamp(2rem,3vw,2.7rem);
-      line-height:1.25;
-    }
-    .storefront-page > .desc{
-      font-size:1.04rem;
-      line-height:1.9;
-      margin-bottom:20px;
-    }
-    .storefront-page > .video-section{
-      margin-bottom:18px;
-    }
-    .storefront-page > .video-section .video-wrap{
-      border-radius:16px;
-      overflow:hidden;
-    }
+    .gallery-dialog{ width:min(78vw,640px); }
+    .modal-box{ max-width:440px; }
 
-    .storefront-page .purchase-selector{
-      margin-bottom:14px;
-    }
-    .storefront-page .purchase-grid{
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-    }
-    .storefront-page .purchase-option{
-      min-height:52px;
-    }
+    .card{ padding:24px; }
+    .success{ padding:60px 20px; }
 
-    .storefront-page .price-row{
-      margin-bottom:18px;
-    }
-    .storefront-page .price{
-      font-size:2rem;
-    }
-
-    .storefront-page .method-add-cart,
-    .storefront-page .cta{
-      min-height:54px;
-      font-size:1rem;
-    }
-
-    .storefront-page .cart-bar{
-      margin:18px 0 12px;
-    }
-
-    .storefront-page .cart-summary{
-      margin-bottom:16px;
-    }
-
-    .storefront-page > .card{
-      padding:24px;
-      margin-bottom:18px;
-      box-shadow:0 8px 26px rgba(0,0,0,.045);
-    }
-
-    .storefront-page .field-row{
-      gap:14px;
-    }
-
-    .storefront-page .field input,
-    .storefront-page .field textarea,
-    .storefront-page .field select{
-      min-height:48px;
-    }
-    .storefront-page .field textarea{
-      min-height:92px;
-    }
-
-    .storefront-page .footer-note,
-    .storefront-page .storefront-footer{
-      text-align:center;
-    }
-
-    /* Keep the customer lightbox comfortable on desktop. */
-    .storefront-page .gallery-dialog{
-      width:min(88vw,900px);
-    }
-    .storefront-page .gallery-main{
-      max-height:86vh;
-    }
+    .cta, .save-btn, .method-add-cart{ cursor:pointer; }
+    .cta:hover, .save-btn:hover{ filter:brightness(.97); }
   }
 
-  @media (min-width:1200px){
-    .storefront-page{
-      column-gap:64px;
-    }
-    .storefront-page .product-gallery{
-      grid-template-columns:repeat(5,minmax(0,1fr));
-    }
+  @media (min-width:1100px){
+    .topbar{ max-width:760px; }
+    .wrap{ max-width:760px; }
+    .admin-wrap{ max-width:980px; }
+
+    .product-gallery{ grid-template-columns:repeat(5,1fr); }
+    .font-grid{ grid-template-columns:repeat(4,1fr); }
+    .color-grid{ grid-template-columns:repeat(4,1fr); }
   }
 
 </style>
